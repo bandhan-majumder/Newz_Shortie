@@ -48,19 +48,22 @@ common_niches = [{
 # # Get yesterday's date
 # tomorrow = today - one_day
 
+# Function to get yesterday's date
 def get_yesterdays_date():
-    tomorrow = datetime.now() - timedelta(days=1)
-    return tomorrow.strftime('%Y-%m-%d')
+    yesterday = datetime.now() - timedelta(days=2)
+    return yesterday.strftime('%Y-%m-%d')
+
 
 # Function to fetch news data
 def get_news(interest):
-    api_key = "my_news_api_key"  # Your News API key
-    tomorrow_date = get_yesterdays_date()
+    api_key = my_news_api_key  # Your News API key
+    yesterday_date = get_yesterdays_date()
     response = requests.get(
-        f"https://newsapi.org/v2/everything?q={interest}&language=en&pagesize=15&from={tomorrow_date}&to={tomorrow_date}&sortBy=publishedAt&apiKey={api_key}"
+        f"https://newsapi.org/v2/everything?q={interest}&language=en&pagesize=15&from={yesterday_date}&sortBy=publishedAt&apiKey={api_key}"
     )
     news_data = json.loads(response.text)
     return news_data.get("articles", [])
+    
 
 @app.route("/")  # registering a route (a html route)
 def hello_world():
