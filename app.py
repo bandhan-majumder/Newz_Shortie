@@ -4,6 +4,7 @@ import requests
 import json
 from randomNiche import random_niches
 import random
+from datetime import datetime, timedelta
 
 app = Flask(__name__)  # turn this file into flask application
 
@@ -38,15 +39,28 @@ common_niches = [{
 }]
 
 
+# # Create a timedelta object representing 1 day
+# one_day = timedelta(days=1)
+
+# # Get today's date
+# today = datetime.now()
+
+# # Get tomorrow's date
+# tomorrow = today + one_day
+
+def get_tomorrows_date():
+    tomorrow = datetime.now() + timedelta(days=1)
+    return tomorrow.strftime('%Y-%m-%d')
+
 # Function to fetch news data
 def get_news(interest):
-    api_key = my_news_api_key  # Your News API key
+    api_key = "your_news_api_key"  # Your News API key
+    tomorrow_date = get_tomorrows_date()
     response = requests.get(
-        f"https://newsapi.org/v2/everything?q={interest}&language=en&pagesize=15&from=2024-02-22&sortBy=publishedAt&apiKey={api_key}"
+        f"https://newsapi.org/v2/everything?q={interest}&language=en&pagesize=15&from={tomorrow_date}&to={tomorrow_date}&sortBy=publishedAt&apiKey={api_key}"
     )
     news_data = json.loads(response.text)
     return news_data.get("articles", [])
-
 
 @app.route("/")  # registering a route (a html route)
 def hello_world():
