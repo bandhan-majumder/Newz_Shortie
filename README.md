@@ -1,5 +1,4 @@
-![pexels-ivan-samkov-4238521](https://github.com/bandhan-majumder/Newz_Shortie/assets/133476557/cb51d16e-f9ef-4adf-b1a1-34be874ddfef)
-
+/static/readme.md
 # Newz Shortie!
 
 Welcome to Newz Shortie! This Flask-based web application allows users to fetch news articles from the News API and view them based on their preferred genre.
