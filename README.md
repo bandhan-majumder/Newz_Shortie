@@ -6,7 +6,7 @@ Welcome to Newz Shortie! This Flask-based web application allows users to fetch 
 
 ## Website Link
 
-You can access the website at [newzshortie.pythonanywhere.com](https://newzshortie.pythonanywhere.com).
+You can access the website at [https://newz-shortie.onrender.com/](https://newz-shortie.onrender.com/)
 
 ## Features
 
@@ -32,14 +32,16 @@ To run this project locally, follow these steps:
     ```
 
 3. Obtain a News API key from [newsapi.org](https://newsapi.org/) and replace `"YOUR_API_KEY"` in `api_key.py` with your actual API key.
+4. Create a file named api_key.py (in the directory where app.py is located)
+6. Inside api_key.py , create a variable my_news_api_key = "PROVIDE YOUR KEY"
 
-4. Run the Flask application:
+7. Run the Flask application:
 
     ```bash
     python app.py
     ```
 
-5. Access the website locally by visiting `http://localhost:5000` in your web browser.
+8. Access the website locally by visiting `http://localhost:5000` in your web browser.
 
 ## Usage
 
