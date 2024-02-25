@@ -1,4 +1,4 @@
-https://github.com/bandhan-majumder/Newz_Shortie/blob/main/static/readme.jpeg
+![Photo](/static/readme.jpeg)
 
 # Newz Shortie!
 
