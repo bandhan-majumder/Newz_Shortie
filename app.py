@@ -45,11 +45,11 @@ common_niches = [{
 # # Get today's date
 # today = datetime.now()
 
-# # Get tomorrow's date
-# tomorrow = today + one_day
+# # Get yesterday's date
+# tomorrow = today - one_day
 
 def get_tomorrows_date():
-    tomorrow = datetime.now() + timedelta(days=1)
+    tomorrow = datetime.now() - timedelta(days=1)
     return tomorrow.strftime('%Y-%m-%d')
 
 # Function to fetch news data
