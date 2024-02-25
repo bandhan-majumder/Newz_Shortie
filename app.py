@@ -54,7 +54,7 @@ def get_yesterdays_date():
 
 # Function to fetch news data
 def get_news(interest):
-    api_key = "your_news_api_key"  # Your News API key
+    api_key = "my_news_api_key"  # Your News API key
     tomorrow_date = get_yesterdays_date()
     response = requests.get(
         f"https://newsapi.org/v2/everything?q={interest}&language=en&pagesize=15&from={tomorrow_date}&to={tomorrow_date}&sortBy=publishedAt&apiKey={api_key}"
