@@ -1,4 +1,5 @@
-/static/readme.md
+https://github.com/bandhan-majumder/Newz_Shortie/blob/main/static/readme.jpeg
+
 # Newz Shortie!
 
 Welcome to Newz Shortie! This Flask-based web application allows users to fetch news articles from the News API and view them based on their preferred genre.
