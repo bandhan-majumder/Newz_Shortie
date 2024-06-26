@@ -1,0 +1,31 @@
+name: Continuous Deployment to Minikube
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Minikube
+      run: minikube start --memory=4000 --driver=docker 
+
+    - name: Pull Docker image
+      run: |
+        docker pull bandhan99/newz_shortie:${{ github.sha }}
+
+    - name: Set Docker environment for Minikube
+      run: |
+        eval $(minikube -p minikube docker-env)
+
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f deployment.yaml
+        kubectl rollout status deployment/shortie-deployment
