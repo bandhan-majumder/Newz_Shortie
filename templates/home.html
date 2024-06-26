@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="container">
+       <div class="text-center mt-3" style="margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;">
+    <h1 class="mt-2" style="padding-bottom: 20px;"><b>Newz Shortie</b></h1>
+       </div>
+        <p class="text-center lead">Explore the news you want to know.</p>
+        <img class="img-fluid img-thumbnail" id="banner" src="static/banner.png" width="500" height="600">
+      <h2 class="mt-2 mb-4 text-decoration-underline text-center mt-5">About Newz Shortie</h2>
+      <div class="row mt-5">
+        <div class="col-md-7 about-newz-shortie" padding: 10px;">
+          <p class="lead">Welcome to Newz Shortie, your ultimate destination for staying informed and exploring the latest news across various niches!</p>
+          <p class="lead">Are you tired of spending countless hours scouring the internet for relevant news articles? Look no further! Newz Shortie is your trusted companion designed to simplify your news consumption experience. Our platform offers concise yet comprehensive summaries of trending topics, ensuring you're always in the loop without the information overload.</p>
+          <p class="lead">At Newz Shortie, we pride ourselves on providing access to a diverse array of categories, catering to every interest and preference. Whether you're passionate about technology advancements, intrigued by political developments, or seeking entertainment insights, we've got you covered. With our carefully curated selection of news pieces, you'll never miss a beat in the fast-paced world of current affairs.</p>
+          <p class="lead">Joining the Newz Shortie community opens doors to endless possibilities. Whether you're a busy professional striving to stay ahead of the curve, an inquisitive individual eager to broaden your horizons, or simply someone who values staying informed with minimal effort, you'll find your place here. Join us today and embark on a rewarding journey of discovery!</p>
+        </div>
+        <div class="d-none d-md-block col-md-5">
+          <img src="static/newspaper.jpg" style="border-radius:9px" width="500" height="600">"
+        </div>
+      </div>
+        <h2 class="mt-5 mb-4 text-decoration-underline text-center">Some common niches</h2>
+      <div class="mt-4 mb-7">
+        {% for common_niche in common_niches %}
+         {% include 'common_niche.html' %}
+        {% endfor %}
+      </div>
+      <!-- Jinja template -->
+        <h2 class="mt-5 mb-4 text-decoration-underline text-center">Find your niche</h2>
+      <form action="/niche" method="get"> <!-- get method will show the niche name after niche/<niche_name>, post will only show niche/  -->
+        <div id="button" class="text-center">
+          <input class="mt-2 mb-4" name="search" placeholder="eg: Politics, Business, Robots" required rows="4" cols="50">
+          <br>
+          <button class="mt-2 mb-5 btn btn-success btn-lg" type="submit">Submit</button>
+          <br>
+        </div>
+      </form>
+    </div>
+{% endblock %}

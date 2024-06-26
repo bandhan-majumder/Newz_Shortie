@@ -1,0 +1,13 @@
+<div class="mt-1 mb-2 border-bottom row" style="padding-bottom:8px;">
+  <div class="col-10"> <!-- total col of 12 -->
+    <h3>{{ common_niche['title'] }} :</h3>
+    <p class="fs-3" style="color: rgb(120, 120, 120); margin-bottom:4px;">{{ common_niche['description'] }}</p>
+  </div>
+  <div class="col-2 mt-4">
+    {% for f in fields %}
+      {% if common_niche['title'] ==  f %}
+       <a href="/niche/{{ f }}" type="button" target=”_blank” class="btn btn-outline-success readnowbtn">Read Now</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
