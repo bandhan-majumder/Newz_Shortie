@@ -4,6 +4,9 @@
 # Find your niche section
 ![Choices](/static/Choices.png)
 
+# Dockerhub Image Repo
+<a href="https://hub.docker.com/repositories/bandhan99"><img src="https://www.padok.fr/en/blog/docker-hub-rate-limit" alt="Repo" style="width:42px;height:42px;"></a>
+
 # Newz Shortie!
 
 Welcome to Newz Shortie! This Flask-based web application allows users to fetch news articles from the News API and view them based on their preferred genre.
