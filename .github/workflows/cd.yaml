@@ -17,9 +17,22 @@ jobs:
     - name: Set up Minikube
       run: minikube start --memory=4000 --driver=docker 
 
-    - name: Pull Docker image
+    - name: Install dependencies
       run: |
-        docker pull bandhan99/newz_shortie:${{ github.sha }}
+        sudo apt-get update
+        sudo apt-get install -y jq
+
+    - name: Get the most recent tag
+      id: get_tag
+      run: |
+        LATEST_TAG=$(curl -s "https://registry.hub.docker.com/v2/repositories/bandhan99/newz_shortie/tags?page_size=1024" | jq -r '.results | sort_by(.last_updated) | last(.[]).name')
+        echo "::set-output name=tag::$LATEST_TAG"
+
+    - name: Update deployment.yaml with the most recent tag
+      run: |
+        TAG=${{ steps.get_tag.outputs.tag }}
+        sed -i "s|image: bandhan99/newz_shortie:.*|image: bandhan99/newz_shortie:${TAG}|" deployment.yaml
+        cat deployment.yaml
 
     - name: Set Docker environment for Minikube
       run: |
