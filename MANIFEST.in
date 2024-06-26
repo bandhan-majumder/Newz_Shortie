@@ -1,0 +1,18 @@
+include LICENSE
+include README.md
+include requirements.txt
+include pyproject.toml
+include poetry.lock
+
+recursive-include static *
+recursive-include templates *
+
+recursive-include tests *
+
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude *.so
+
+# Exclude sensitive information
+exclude api_key.py
