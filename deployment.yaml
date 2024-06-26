@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shortie-deployment
+  labels:
+    app: shortie
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shortie
+  template:
+    metadata:
+      labels:
+        app: shortie
+    spec:
+      containers:
+        - name: shortie
+          image: bandhan99/newz_shortie
+          ports:
+            - containerPort: 5000
