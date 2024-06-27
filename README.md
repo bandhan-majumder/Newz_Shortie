@@ -20,7 +20,7 @@ As AWS charges if I keep my instance running all the time, the application is de
 ### CI/CD
 - **CI/CD pipleine**: ci.yaml and cd.yaml continously do integration and deployment to an EC2 instance ( instance is not running now ) after checking the code with pytest.
 - **Code testing**: ci.yaml tests the python code everytime using pytest
-- 
+  
 ### Web App
 - **News Fetching**: Fetches news articles from the News API.
 - **Genre Selection**: Allows users to select their preferred news genre.
