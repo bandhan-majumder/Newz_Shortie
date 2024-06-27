@@ -1,5 +1,8 @@
 import os
 
+# Print all environment variables for debugging
+print(os.environ)
+
 # Fetch the API key from GitHub secret
 my_news_api_key = os.getenv('NEWS_API_KEY')
 
