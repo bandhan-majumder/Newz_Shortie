@@ -13,89 +13,45 @@ Welcome to Newz Shortie! This Flask-based web application allows users to fetch 
 
 ## Website Link
 
-As AWS charges if I keep my instance running all the time, the application is deployed on Render and can be accessed from [Here](https://newz-shortie.onrender.com/). By updating secrets with the new EC2 instance's host, private file (.pem) and user, GitHub action will automatically deploy this application to that instance and can be access at port 5000 (<public_ip>:5000) with **added inbound rule of custom TCP at port 5000**.
+As AWS charges if I keep my instance running all the time, the application is deployed on Render and can be accessed from [running on Render](https://newz-shortie.onrender.com/). By updating secrets with the new EC2 instance's host, private file (.pem) and user, GitHub action will automatically deploy this application to that instance and can be access at port 5000 (<public_ip>:5000) with **added inbound rule of custom TCP at port 5000**.
 
 ## Features
 
+### CI/CD
+- **CI/CD pipleine**: ci.yaml and cd.yaml continously do integration and deployment to an EC2 instance ( instance is not running now ) after checking the code with pytest.
+- **Code testing**: ci.yaml tests the python code everytime using pytest
+- 
+### Web App
 - **News Fetching**: Fetches news articles from the News API.
 - **Genre Selection**: Allows users to select their preferred news genre.
 - **Genre-based Display**: Displays news articles based on the selected genre.
 - **User-friendly Interface**: Simple and intuitive user interface for ease of use.
 
-## CREATE EC2 and setup DOCKER
+## Docker (distroless image) and AWS (EC2) 
 
-Read this blog : https://bit.ly/4entdPU
+Read this blog on deploying this app with distroless image container and EC2 instance (AWS) : [MY HASHNODE BLOG](https://bit.ly/4entdPU) 
 
-To run this project locally, follow these steps:
+**To run this project locally, follow these steps:**
 
-1. Create a new EC2 instance
-2. Edit inbound rule and add custom tcp at port 5000
-
-3. Download Docker in that ec2
-4. ```bash
-   sudo apt update
-   sudo apt install docker.io -y
-   ```
-5. Check Docker daemon status via
-   ```bash
-   sudo systemctl status docker
-   ```
-6. If it is not running, make it run with
-   ```bash
-   sudo systemctl start docker
-   ```
-7. Grant access to user to run Docker commands
-   ```bash
-   sudo usermod -aG docker ubuntu
-   ```
-8. Check if it's working properly or not
-   ```bash
-   docker run hello-world
-   ```
-   it should return this as output
-   ```bash
-   Hello from Docker!
-   This message shows that your installation appears to be working correctly.
-
-   To generate this message, Docker took the following steps:
-   1. The Docker client contacted the Docker daemon.
-   2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-     (amd64)
-   3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
-   4. The Docker daemon streamed that output to the Docker client, which sent it
-     to your terminal.
-
-   To try something more ambitious, you can run an Ubuntu container with:
-   $ docker run -it ubuntu bash
-
-   Share images, automate workflows, and more with a free Docker ID:
-   https://hub.docker.com/
-   ```
-
-## Clone, create image & container
-
-9. Clone the repository:
-
+1. Run the following command on the terminal 
     ```bash
     git clone https://github.com/bandhan-majumder/Newz_Shortie.git
     ```
-10. Obtain a News API key from [newsapi.org](https://newsapi.org/) and replace `"YOUR_API_KEY"` in `api_key.py` with actual API key.
-   
-11. Generate Docker image:
-
-    ```bash
-    docker build -t <custom_img_name>
-    ```
-12. Get the image id
+2. go to the folder using cd
    ```bash
-    sudo docker images
+   cd Newz_Shortie
    ```
-13. Spin up the container and expose the 5000 port (default port of flask appliocation).
+3. Obtain a News API key from [newsapi.org](https://newsapi.org/) and replace `"my_news_api_key"` in `api.py` with actual API key.
+4. Install all the requirements using
    ```bash
-    sudo docker -p 5000:5000 -it <image_id>
+   pip install -r requirements. txt
    ```
-14. Go to browser and search for `public_ip_of_ec2instace:5000`
+5. Run the app
+   ```bash
+   python app.py
+   ```
+6. Access the working application
+   <localhost:5000>
 
 ## Usage
 
@@ -108,9 +64,9 @@ To run this project locally, follow these steps:
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/YourFeature`).
+2. Create your feature branch (`git checkout -b feature/<YourFeature>`).
 3. Commit your changes (`git commit -am 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
+4. Push to the branch (`git push origin feature/<YourFeature>`).
 5. Open a pull request.
 
 ## Credits
