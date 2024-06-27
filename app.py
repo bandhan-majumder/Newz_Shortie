@@ -1,11 +1,12 @@
 from flask import Flask, render_template, jsonify, request, redirect
-from api_key import my_news_api_key
+import os
 import requests
 import json
 from randomNiche import random_niches
 import random
 from datetime import datetime, timedelta
 
+my_news_api_key = os.environ["my_news_api_key"]
 app = Flask(__name__)  # turn this file into flask application
 
 common_niches = [{
