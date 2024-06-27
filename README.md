@@ -13,7 +13,7 @@ Welcome to Newz Shortie! This Flask-based web application allows users to fetch 
 
 ## Website Link
 
-You can access the website at [https://newz-shortie.onrender.com/](https://newz-shortie.onrender.com/)
+You can access the website [Here](https://newz-shortie.onrender.com/)
 
 ## Features
 
