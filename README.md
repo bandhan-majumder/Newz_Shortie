@@ -35,7 +35,7 @@ Read this blog on deploying this app with distroless image container and EC2 ins
 
 1. Run the following command on the terminal 
     ```bash
-    git clone https://github.com/bandhan-majumder/Newz_Shortie.git
+    git clone https://github.com/bandhan-majumder/Newz_Shortie
     ```
 2. go to the folder using cd
    ```bash
