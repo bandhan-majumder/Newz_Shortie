@@ -9,36 +9,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Minikube
-      run: minikube start --memory=4000 --driver=docker 
-
-    - name: Install dependencies
+    - name: Deploy to EC2
+      env:
+        PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
       run: |
-        sudo apt-get update
-        sudo apt-get install -y jq
-
-    - name: Get the most recent tag
-      id: get_tag
-      run: |
-        LATEST_TAG=$(curl -s "https://registry.hub.docker.com/v2/repositories/bandhan99/newz_shortie/tags?page_size=1024" | jq -r '.results | sort_by(.last_updated) | last(.[]).name')
-        echo "::set-output name=tag::$LATEST_TAG"
-
-    - name: Update deployment.yaml with the most recent tag
-      run: |
-        TAG=${{ steps.get_tag.outputs.tag }}
-        sed -i "s|image: bandhan99/newz_shortie:.*|image: bandhan99/newz_shortie:${TAG}|" deployment.yaml
-        cat deployment.yaml
-
-    - name: Set Docker environment for Minikube
-      run: |
-        eval $(minikube -p minikube docker-env)
-
-    - name: Deploy to Minikube
-      run: |
-      # kubectl apply -f deployment.yaml
-      # kubectl rollout status deployment/shortie-deployment
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} '
+          docker pull your-dockerhub-username/your-app:${{ github.sha }}
+          docker stop app-container || true
+          docker rm app-container || true
+          docker run -d --name app-container -p 80:5000 your-dockerhub-username/your-app:${{ github.sha }}
