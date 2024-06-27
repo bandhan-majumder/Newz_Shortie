@@ -16,9 +16,9 @@ jobs:
         HOST: ${{ secrets.EC2_HOST }}
         USER: ${{ secrets.EC2_USER }}
       run: |
-        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} '
-          docker pull your-dockerhub-username/your-app:${{ github.sha }}
-          docker stop app-container || true
-          docker rm app-container || true
-          docker run -d --name app-container -p 80:5000 your-dockerhub-username/your-app:${{ github.sha }}
+        echo "$PRIVATE_KEY" > private_key && chmod +x private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST}
+          docker pull bandhan99/newz_shortie:${{ github.sha }}
+          docker stop shortie_contianer || true
+          docker rm shortie_contianer || true
+          docker run -d --name shortie_container -p 5000:5000 bandhan99/newz_shortie:${{ github.sha }}
