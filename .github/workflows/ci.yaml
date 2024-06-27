@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  my_news_api_key: ${{ secrets.NEWS_API_KEY }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
