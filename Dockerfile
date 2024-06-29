@@ -36,9 +36,6 @@ WORKDIR /app
 COPY nginx.conf.template /app/nginx.conf.template
 COPY config_and_start_nginx.sh /app/config_and_start_nginx.sh
 
-# give executable permission to the script
-RUN chmod +x /app/config_and_start_nginx.sh
-
 EXPOSE 80
 
 # use config_and_start_nginx.sh script as entrypoint
