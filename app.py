@@ -6,8 +6,7 @@ from randomNiche import random_niches
 import random
 from datetime import datetime, timedelta
 
-# my_news_api_key = os.environ["my_news_api_key"] # get api key 
-my_news_api_key = "89d3583d4c64174923a594c4ac308c8"
+my_news_api_key = os.environ["my_news_api_key"] # get api key 
 app = Flask(__name__)  # turn this file into flask application
 
 common_niches = [{
