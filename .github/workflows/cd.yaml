@@ -17,6 +17,7 @@ jobs:
         USER: ${{ secrets.EC2_USER }}
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        /usr/bin/docker version || echo "Docker not found"
         ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} '
           docker pull bandhan99/newz_shortie:${{ github.sha }}
           docker stop shortie-container || true
