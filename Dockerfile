@@ -32,7 +32,7 @@ COPY --from=build-venv /usr/share/nginx /usr/share/nginx
 COPY . /app
 WORKDIR /app
 
-# Copy Nginx configuration template
+# Copy Nginx configuration template and script
 COPY nginx.conf.template /app/nginx.conf.template
 COPY config_and_start_nginx.sh /app/config_and_start_nginx.sh
 
