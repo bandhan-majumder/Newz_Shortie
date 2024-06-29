@@ -6,7 +6,8 @@ from randomNiche import random_niches
 import random
 from datetime import datetime, timedelta
 
-my_news_api_key = os.environ["my_news_api_key"] # get api key 
+# my_news_api_key = os.environ["my_news_api_key"] # get api key 
+my_news_api_key = "89d3583d4c64174923a594c4ac308c8"
 app = Flask(__name__)  # turn this file into flask application
 
 common_niches = [{
@@ -56,7 +57,12 @@ def get_news(interest):
     news_data = json.loads(response.text)
     return news_data.get("articles", [])
 
-# registering a route (a html route)
+# Custom 404 error handler
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
+# registering a route
 @app.route("/")  
 def hello_world():
     fields = ['Technology', 'Sports', 'Weather', 'Finance']
@@ -97,5 +103,5 @@ def about():
 
 
 if __name__ == "__main__":  # if the file is run directly / invoked via fle name (python app.py)
-    app.run(host='0.0.0.0',
-            debug=True)  # debug=True enables reloading the changes while running
+    app.run(host='127.0.0.1',
+            port=5000)  # debug=True enables reloading the changes while running
