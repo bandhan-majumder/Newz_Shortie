@@ -4,12 +4,12 @@
 # Find your niche section
 ![Choices](/static/Choices.png)
 
-# Dockerhub Image Repo
-<a href="https://hub.docker.com/repositories/bandhan99"><img src="https://www.padok.fr/en/blog/docker-hub-rate-limit" alt="Repo" style="width:42px;height:42px;"></a>
+# Monitoring using Prometheus-client
+![Monitoring](https://github.com/bandhan-majumder/Newz_Shortie/assets/133476557/ac65d93c-1bbf-4f00-9a28-75618eac39f6)
 
 # Newz Shortie!
 
-Welcome to Newz Shortie! This Flask-based web application allows users to fetch news articles from the News API and view them based on their preferred genre.
+Welcome to Newz Shortie! This Flask-based web application allows users to fetch news articles from the News API and view them based on their preferred genre. This project is to show best DevOps practices such as automated CI/CD pipelines, monitoring, containerization, security.
 
 ## Website Link
 
@@ -17,11 +17,42 @@ As AWS charges if I keep my instance running all the time, the application is de
 
 ## Features
 
-### CI/CD
-- **CI/CD pipleine**: ci.yaml and cd.yaml continously do integration and deployment to an EC2 instance ( instance is not running now ) after checking the code with pytest.
-- **Code testing**: ci.yaml tests the python code everytime using pytest
+### Frontend
+- HTML
+- CSS
+
+### Backend
+- Flask
+
+### Proxy server
+- Nginx
+
+### Security
+- DDOS prevention with Nginx
   
-### Web App
+### Scripting
+- Bash scripting to retrieve secrets
+
+### Containerization and registry
+- Docker
+- Dockerhub <https://hub.docker.com/repositories/bandhan99>
+
+### Automation with CI/CD 
+- GitHub actions
+  
+### Cloud platform
+- AWS
+  
+### Monitoring
+- prometheus-client
+
+### Upcoming feature
+- Grafana
+- Terraform
+- Container orchestration tools like Kubernetes, EKS etc
+- Many more DevOps best practices
+  
+## Features of Web App
 - **News Fetching**: Fetches news articles from the News API.
 - **Genre Selection**: Allows users to select their preferred news genre.
 - **Genre-based Display**: Displays news articles based on the selected genre.
@@ -52,6 +83,8 @@ Read this blog on deploying this app with distroless image container and EC2 ins
    ```
 6. Access the working application
    <localhost:5000>
+7. Access the monitoring
+   <localhost:5000/metrics>
 
 ## Usage
 
@@ -71,8 +104,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Credits
 
-This project was created by [Bandhan Majumder](https://github.com/bandhan-majumder).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project was created by [Bandhan Majumder](https://github.com/bandhan-majumder)
