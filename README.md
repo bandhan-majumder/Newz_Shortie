@@ -33,6 +33,9 @@ As AWS charges if I keep my instance running all the time, the application is de
 ### Scripting
 - Bash scripting to retrieve secrets
 
+### Code Testing
+- Pytest
+  
 ### Containerization and registry
 - Docker
 - Dockerhub <https://hub.docker.com/repositories/bandhan99>
