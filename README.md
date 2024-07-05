@@ -15,7 +15,7 @@ Welcome to Newz Shortie! This Flask-based web application allows users to fetch 
 
 As AWS charges if I keep my instance running all the time, the application is deployed on Render and can be accessed from [running on Render](https://newz-shortie.onrender.com/). By updating secrets with the new EC2 instance's host, private file (.pem) and user, GitHub action will automatically deploy this application to that instance and can be access at port 5000 (<public_ip>:5000) with **added inbound rule of custom TCP at port 5000**.
 
-## Features
+## Tech stack 
 
 ### Frontend
 - HTML
