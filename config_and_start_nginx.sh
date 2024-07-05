@@ -7,4 +7,4 @@ sed "s/{{HOST}}/$HOST/g" ./nginx.conf.template > /etc/nginx/nginx.conf
 nginx -g "daemon off;" &
 
 # Starting Flask app
-/venv/bin/python3 app.py
+python3 app.py
