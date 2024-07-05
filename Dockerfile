@@ -35,6 +35,7 @@ WORKDIR /app
 # Copy Nginx configuration template and script
 COPY nginx.conf.template /app/nginx.conf.template
 COPY config_and_start_nginx.sh /app/config_and_start_nginx.sh
+RUN chmod +x /app/config_and_start_nginx.sh
 
 EXPOSE 80
 
