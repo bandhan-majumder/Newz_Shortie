@@ -35,7 +35,7 @@ WORKDIR /app
 # Copy Nginx configuration template and script
 COPY nginx.conf.template /app/nginx.conf.template
 COPY config_and_start_nginx.sh /app/config_and_start_nginx.sh
-RUN ["ash", "-c", "chmod +x /app/config_and_start_nginx.sh"]
+RUN python -c "import os; os.chmod('/app/config_and_start_nginx.sh', 0o755)"
 
 EXPOSE 80
 
