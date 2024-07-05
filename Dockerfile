@@ -38,6 +38,7 @@ COPY config_and_start_nginx.sh /app/config_and_start_nginx.sh
 RUN python -c "import os; os.chmod('/app/config_and_start_nginx.sh', 0o755)"
 
 EXPOSE 80
+EXPOSE 5000
 
 # use config_and_start_nginx.sh script as entrypoint
 ENTRYPOINT ["/app/config_and_start_nginx.sh"]
