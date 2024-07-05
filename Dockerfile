@@ -11,7 +11,8 @@ COPY requirements.txt /requirements.txt
 RUN /venv/bin/pip install --disable-pip-version-check -r /requirements.txt
 
 # Final stage
-FROM gcr.io/distroless/python3-debian10
+FROM debian:buster-slim
+RUN apt-get update && apt-get install -y --no-install-recommends bash python3
 COPY --from=build-venv /venv /venv
 COPY --from=build-venv /bin/ping /bin/ping
 COPY --from=build-venv /lib/x86_64-linux-gnu/libcap.so.2 /lib/x86_64-linux-gnu/libcap.so.2
@@ -34,7 +35,9 @@ WORKDIR /app
 # Copy Nginx configuration template and script
 COPY nginx.conf.template /app/nginx.conf.template
 COPY config_and_start_nginx.sh /app/config_and_start_nginx.sh
-RUN python -c "import os; os.chmod('/app/config_and_start_nginx.sh', 0o755)"
+
+RUN pwd && ls -la && sleep 20
+RUN chmod +x config_and_start_nginx.sh
 
 EXPOSE 80
 EXPOSE 5000
