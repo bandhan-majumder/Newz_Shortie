@@ -7,7 +7,7 @@ import random
 from datetime import datetime, timedelta
 from prometheus_client import generate_latest, REGISTRY, Counter, Gauge, Summary
 
-my_news_api_key = os.environ["my_news_api_key"] # get api key 
+my_news_api_key = os.environ["NEWS_API_KEY"] # get api key 
 app = Flask(__name__)  # turn this file into flask application
 
 # Define the Prometheus metrics
