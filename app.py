@@ -15,9 +15,36 @@ request_counter = Counter('http_requests_total', 'Total number of HTTP requests.
 active_users = Gauge('active_users', 'Current number of active users')
 request_duration = Summary('request_duration_seconds', 'Request duration in seconds')
 
-common_niches = [
-    # ... (your common niches data)
-]
+# My common niche types
+common_niches = [{
+    "id":
+        1,
+    "title":
+        "Technology",
+    "description":
+        "Stay up-to-date with the latest tech innovations and advancements.",
+}, {
+    "id":
+        2,
+    "title":
+        "Sports",
+    "description":
+        "Catch up on the latest scores, highlights, and stories from the world of sports.",
+}, {
+    "id":
+        3,
+    "title":
+        "Weather",
+    "description":
+        "Get forecasts, weather updates, and climate news for your local area and beyond.",
+}, {
+    "id":
+        4,
+    "title":
+        "Finance",
+    "description":
+        "Stay informed about market trends, investment opportunities, and financial news.",
+}]
 
 # Function to get yesterday's date
 def get_yesterdays_date():
