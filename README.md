@@ -24,7 +24,7 @@ As AWS charges if I keep my instance running all the time, the application is de
 ### Backend
 - Flask
 
-### Proxy server
+### Reverse Proxy
 - Nginx
 
 ### Security
