@@ -6,9 +6,9 @@ from randomNiche import random_niches
 import random
 from datetime import datetime, timedelta
 from prometheus_client import generate_latest, REGISTRY, Counter, Gauge, Summary
+from werkzeug.serving import run_simple
 
-my_news_api_key = "123"
-# my_news_api_key = os.environ["NEWS_API_KEY"] # get api key 
+my_news_api_key = os.environ["NEWS_API_KEY"] # get api key 
 app = Flask(__name__)  # turn this file into flask application
 
 # Define the Prometheus metrics
@@ -118,6 +118,5 @@ def metrics():
     return Response(generate_latest(REGISTRY), mimetype='text/plain')
 
 if __name__ == '__main__':
-    from werkzeug.serving import run_simple
     run_simple('localhost', 5000, app, use_reloader=True, threaded=True)
 
