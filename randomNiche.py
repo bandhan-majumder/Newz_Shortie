@@ -1,0 +1,22 @@
+random_niches = [
+    "Sports", "Technology", "Health", "Politics", "Entertainment", "Science", "Business", "Lifestyle", "Travel", "Food",
+    "Fashion", "Education", "Finance", "Automotive", "Gaming", "Music", "Art", "Film", "Literature", "Home Decor",
+    "Parenting", "Fitness", "Beauty", "Pets", "DIY", "Gardening", "Photography", "History", "Religion", "Architecture",
+    "Psychology", "Sociology", "Humanitarian Aid", "Space Exploration", "Cryptocurrency", "Virtual Reality", "Augmented Reality",
+    "Cybersecurity", "Artificial Intelligence", "Robotics", "Nanotechnology", "Biotechnology", "Health Tech", "Wearable Tech",
+    "Cloud Computing", "Internet of Things", "Big Data", "Blockchain", "Quantum Computing", "Genetic Engineering", "Mental Health",
+    "Addiction", "Aging", "Infectious Diseases", "Chronic Illnesses", "Disability Rights", "Medical Breakthroughs", "Public Health Policies",
+    "Vaccines", "Mental Well-being", "Meditation", "Yoga", "Mindfulness", "Personal Development", "Self-help", "Motivation", "Leadership",
+    "Career Development", "Networking", "Startups", "Entrepreneurship", "Market Trends", "Global Economy", "Trade Agreements", "Stock Market",
+    "Real Estate", "Small Business", "Economic Policy", "Economic Forecasting", "Tourism", "Adventure Travel", "Luxury Travel", "Solo Travel",
+    "Budget Travel", "Ecotourism", "Culinary Travel", "Cultural Tourism", "Sustainable Travel", "Wellness Tourism", "Digital Nomadism",
+    "Gastronomy", "Food Tourism", "Wine Tourism", "Craft Beer Tourism", "Coffee Tourism", "Ethical Fashion", "Sustainable Fashion",
+    "Vintage Fashion", "Slow Fashion", "High Fashion", "Street Fashion", "Fast Fashion", "Couture", "Body Positivity", "Diversity in Fashion",
+    "Inclusive Fashion", "Fashion Tech", "Online Education", "Distance Learning", "Lifelong Learning", "Educational Technology", "Online Courses",
+    "MOOCs (Massive Open Online Courses)", "Educational Apps", "Homeschooling", "Adult Education", "Financial Literacy", "Investment Education",
+    "Entrepreneurial Education", "Early Childhood Education", "Higher Education", "Student Life", "Academic Research", "Campus News",
+    "Student Activism", "University Rankings", "Scholarships", "Student Loans", "Study Abroad", "College Admissions", "Student Health",
+    "Campus Culture", "Alumni News", "Graduate Education", "Academic Conferences", "Research Funding", "Grant Opportunities", "Academic Publishing",
+    "Peer Review", "Academic Journals", "Scientific Discoveries", "Space Exploration", "Climate Science", "Environmental Conservation",
+    "Renewable Energy", "Wildlife Conservation", "Oceanography", "Paleontology", "Archeology", "Astronomy"
+]
