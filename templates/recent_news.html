@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if news %}
+    <div class="text-center mt-3 mb-3" style="margin: 0 auto; padding: 40px; font-family: Arial, sans-serif;">
+    <h1 class="mt-2 mb-2" style="padding-bottom: 20px;"><b>Latest News</b></h1>
+    <ul>
+        {% for article in news %}
+        <li style="margin-top: 3rem; padding: 1rem; border: 1px solid #ccc; border-radius: 5px;">
+           <h2 style="font-size: 24px; color: #333; text-decoration: underline;"><b>{{ article.title }}</b></h2>
+           <p style="margin-bottom: 0.5rem;" class="lead">{{ article.description }}</p>
+           <p style="margin-bottom: 0.5rem;" class="lead">Published by: {{ article.source.name }}</p>
+          <img src="{{ article.urlToImage }}" alt="News Image" style="max-width: 50%; max-height: 50%; border-radius: 5px; margin-bottom: 0.5rem;">
+          <p style="margin-bottom: 0.5rem;" class="lead">Published at: {{ article.publishedAt }}</p>
+          <p style="margin-bottom: 0.5rem;" class="lead">Content: {{ article.content }}</p>
+          <a href="{{ article.url }}" target="_blank">Read more</a>
+        </li>
+        {% endfor %}
+    </ul>
+        {% else %}
+    <img src="static/error.jpg" alt="API key missing image" width="480" height="480" style="display: block; margin: 0 auto; border-radius: 20px;">
+    <h2 style="text-align: center" class="mt-4 mb-5">Oops! Check your API key 🔑</h2>
+    </div>
+{% endif %}
+{% endblock %}
